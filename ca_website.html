@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA Arjun Mehta | Chartered Accountant & Financial Advisor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #c9a227;
+            --accent-hover: #b8941f;
+            --text-dark: #1a202c;
+            --text-light: #4a5568;
+            --bg-light: #f7fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: rgba(201, 162, 39, 0.1);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--white);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .credentials {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .credential-item i {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        .credential-item span {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(201, 162, 39, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .service-features li i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        /* Financial Planning Detail Section */
+        .financial-planning {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+        }
+
+        .financial-planning .section-header h2,
+        .financial-planning .section-header p {
+            color: var(--white);
+        }
+
+        .financial-planning .divider {
+            background: var(--accent);
+        }
+
+        .fp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .fp-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .fp-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .fp-card .fp-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .fp-card .fp-icon i {
+            color: var(--white);
+            font-size: 1.25rem;
+        }
+
+        .fp-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .fp-card p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .fp-card ul {
+            list-style: none;
+        }
+
+        .fp-card ul li {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .fp-card ul li i {
+            color: var(--accent);
+            margin-top: 0.25rem;
+            font-size: 0.8rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: var(--bg-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Social Media Section */
+        .social-section {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .social-card {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .social-card i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-card span {
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .social-linkedin { background: #0077b5; color: white; }
+        .social-twitter { background: #1da1f2; color: white; }
+        .social-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+        .social-facebook { background: #4267B2; color: white; }
+        .social-youtube { background: #FF0000; color: white; }
+        .social-whatsapp { background: #25D366; color: white; }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            color: var(--accent);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        .contact-item div h4 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .contact-item div p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .whatsapp-btn {
+            width: 100%;
+            background: #25D366;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand h3 span {
+            color: var(--accent);
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalSlide 0.3s ease;
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .modal h2 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+        }
+
+        .floating-cta .btn-primary {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image img {
+                width: 300px;
+                height: 300px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image::before {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: var(--shadow);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .floating-cta {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .floating-cta .btn-primary {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">CA <span>Arjun Mehta</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#financial-planning">Financial Planning</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="btn-primary" onclick="openModal()">Book a Call</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Your Trusted <span>Financial Partner</span></h1>
+                <p class="subtitle">Chartered Accountant & Wealth Management Expert</p>
+                <p>With over 15 years of experience in taxation, auditing, and financial planning, I help individuals and businesses achieve their financial goals through strategic planning and expert guidance.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-primary">Explore Services</a>
+                    <a href="#contact" class="btn-outline">Get in Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Clients Served</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>Success Rate</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop" alt="CA Arjun Mehta">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>About Me</h2>
+                <div class="divider"></div>
+                <p>Dedicated to delivering excellence in financial services with integrity and professionalism</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=500&fit=crop" alt="Professional Workspace">
+                </div>
+                <div class="about-content fade-in">
+                    <h3>Expert Financial Guidance for Your Future</h3>
+                    <p>I am a qualified Chartered Accountant with extensive experience in providing comprehensive financial solutions. My expertise spans across tax planning, audit assurance, investment advisory, and wealth management.</p>
+                    <p>My mission is to empower clients with the knowledge and strategies they need to make informed financial decisions. Whether you are an individual planning for retirement or a business seeking growth, I provide personalized solutions tailored to your unique needs.</p>
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>ICAI Member</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-award"></i>
+                            <span>CFA Level II</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>SEBI Registered</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-globe"></i>
+                            <span>IFRS Certified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>Professional Services</h2>
+                <div class="divider"></div>
+                <p>Comprehensive financial and accounting solutions for individuals and businesses</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Taxation Services</h3>
+                    <p>Complete tax planning and filing services for individuals and businesses including Income Tax, GST, and TDS compliance.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Income Tax Return Filing</li>
+                        <li><i class="fas fa-check"></i> GST Registration & Returns</li>
+                        <li><i class="fas fa-check"></i> Tax Planning & Optimization</li>
+                        <li><i class="fas fa-check"></i> Tax Audit Assistance</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>Audit & Assurance</h3>
+                    <p>Independent audit services ensuring accuracy and compliance with regulatory standards for your financial statements.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Statutory Audits</li>
+                        <li><i class="fas fa-check"></i> Internal Audits</li>
+                        <li><i class="fas fa-check"></i> GST Audits</li>
+                        <li><i class="fas fa-check"></i> Due Diligence</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Business Advisory</h3>
+                    <p>Strategic business consulting to help startups and established companies optimize operations and maximize profitability.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Business Registration</li>
+                        <li><i class="fas fa-check"></i> Financial Projections</li>
+                        <li><i class="fas fa-check"></i> MIS Reports</li>
+                        <li><i class="fas fa-check"></i> Valuation Services</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Compliance Services</h3>
+                    <p>End-to-end compliance management ensuring your business meets all statutory requirements on time, every time.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> ROC Filings</li>
+                        <li><i class="fas fa-check"></i> LLP Compliance</li>
+                        <li><i class="fas fa-check"></i> Secretarial Services</li>
+                        <li><i class="fas fa-check"></i> Annual Compliance</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Investment Advisory</h3>
+                    <p>Data-driven investment strategies to help you build and preserve wealth across equity, debt, and alternative assets.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Portfolio Management</li>
+                        <li><i class="fas fa-check"></i> Mutual Fund Advisory</li>
+                        <li><i class="fas fa-check"></i> Stock Market Guidance</li>
+                        <li><i class="fas fa-check"></i> Risk Assessment</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Loan & Funding</h3>
+                    <p>Expert assistance in securing business loans, home loans, and project funding with optimal terms and rates.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Home Loan Advisory</li>
+                        <li><i class="fas fa-check"></i> Business Loan Facilitation</li>
+                        <li><i class="fas fa-check"></i> Project Finance</li>
+                        <li><i class="fas fa-check"></i> CMA Data Preparation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Planning Services Section -->
+    <section class="financial-planning" id="financial-planning">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>Financial Planning Services</h2>
+                <div class="divider"></div>
+                <p>Detailed, personalized financial strategies to secure your future and achieve your life goals</p>
+            </div>
+            <div class="fp-grid">
+                <div class="fp-card fade-in">
+                    <div class="fp-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Long-Term Investment Planning</h3>
+                    <p>Build sustainable wealth with strategic long-term investment plans tailored to your risk appetite and financial goals.</p>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> Equity & Mutual Fund Portfolio Creation</li>
+                        <li><i class="fas fa-chevron-right"></i> Retirement Corpus Planning (NPS, PPF, EPF)</li>
+                        <li><i class="fas fa-chevron-right"></i> SIP Strategy & Wealth Compounding</li>
+                        <li><i class="fas fa-chevron-right"></i> Tax-Efficient Investment Structures</li>
+                        <li><i class="fas fa-chevron-right"></i> Annual Portfolio Review & Rebalancing</li>
+                    </ul>
+                </div>
+                <div class="fp-card fade-in">
+                    <div class="fp-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home Loan & Real Estate Planning</h3>
+                    <p>Navigate the complexities of home financing with expert guidance on loans, EMIs, tax benefits, and property investment.</p>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> Home Loan Eligibility Assessment</li>
+                        <li><i class="fas fa-chevron-right"></i> EMI vs. Tenure Optimization</li>
+                        <li><i class="fas fa-chevron-right"></i> Tax Benefits under Section 24 & 80C</li>
+                        <li><i class="fas fa-chevron-right"></i> Balance Transfer & Prepayment Strategy</li>
+                        <li><i class="fas fa-chevron-right"></i> Joint Loan & Co-Applicant Advisory</li>
+                    </ul>
+                </div>
+                <div class="fp-card fade-in">
+                    <div class="fp-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Marriage & Couple Investment Plans</h3>
+                    <p>Specialized financial planning for newlyweds and couples to align finances, set joint goals, and build wealth together.</p>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> Joint Financial Goal Setting</li>
+                        <li><i class="fas fa-chevron-right"></i> Wedding Expense Planning & Budgeting</li>
+                        <li><i class="fas fa-chevron-right"></i> Couple's Investment Portfolio</li>
+                        <li><i class="fas fa-chevron-right"></i> Emergency Fund Planning</li>
+                        <li><i class="fas fa-chevron-right"></i> Insurance Planning for Spouses</li>
+                    </ul>
+                </div>
+                <div class="fp-card fade-in">
+                    <div class="fp-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Financial Health Review</h3>
+                    <p>Get a comprehensive analysis of your current financial status with actionable insights to improve your financial well-being.</p>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> Net Worth Analysis & Tracking</li>
+                        <li><i class="fas fa-chevron-right"></i> Cash Flow & Budget Analysis</li>
+                        <li><i class="fas fa-chevron-right"></i> Debt-to-Income Ratio Assessment</li>
+                        <li><i class="fas fa-chevron-right"></i> Insurance Gap Analysis</li>
+                        <li><i class="fas fa-chevron-right"></i> Personalized Improvement Roadmap</li>
+                    </ul>
+                </div>
+                <div class="fp-card fade-in">
+                    <div class="fp-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Child Education & Future Planning</h3>
+                    <p>Secure your child's future with dedicated education funds and long-term savings plans for higher studies.</p>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> Education Cost Projection</li>
+                        <li><i class="fas fa-chevron-right"></i> Sukanya Samriddhi / Child Plans</li>
+                        <li><i class="fas fa-chevron-right"></i> Education Loan Guidance</li>
+                        <li><i class="fas fa-chevron-right"></i> Overseas Education Funding</li>
+                    </ul>
+                </div>
+                <div class="fp-card fade-in">
+                    <div class="fp-icon">
+                        <i class="fas fa-umbrella"></i>
+                    </div>
+                    <h3>Insurance & Risk Management</h3>
+                    <p>Protect your family and assets with the right mix of life, health, and general insurance tailored to your needs.</p>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> Term Life Insurance Planning</li>
+                        <li><i class="fas fa-chevron-right"></i> Health & Critical Illness Coverage</li>
+                        <li><i class="fas fa-chevron-right"></i> Asset Protection Strategies</li>
+                        <li><i class="fas fa-chevron-right"></i> Claim Assistance & Review</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>Portfolio & Achievements</h2>
+                <div class="divider"></div>
+                <p>A glimpse of my professional journey and notable accomplishments</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop" alt="Client Success">
+                    <div class="portfolio-content">
+                        <h3>500+ Clients Served</h3>
+                        <p>Trusted by individuals, SMEs, and corporates across India for comprehensive financial solutions.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=400&h=300&fit=crop" alt="Tax Savings">
+                    <div class="portfolio-content">
+                        <h3>₹50Cr+ Tax Saved</h3>
+                        <p>Helped clients save over ₹50 Crores in taxes through strategic planning and compliance.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop" alt="Business Growth">
+                    <div class="portfolio-content">
+                        <h3>200+ Startups Guided</h3>
+                        <p>Mentored and advised over 200 startups from incorporation to scaling and funding.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=400&h=300&fit=crop" alt="Awards">
+                    <div class="portfolio-content">
+                        <h3>Award-Winning Practice</h3>
+                        <p>Recognized by ICAI and industry bodies for excellence in client service and ethical practice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section" id="social">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>Connect With Me</h2>
+                <div class="divider"></div>
+                <p>Follow me on social media for daily financial tips, market updates, and insights</p>
+            </div>
+            <div class="social-grid fade-in">
+                <a href="https://linkedin.com" target="_blank" class="social-card social-linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-card social-twitter">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-card social-instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-card social-facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-card social-youtube">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="https://wa.me/919876543210" target="_blank" class="social-card social-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>Get In Touch</h2>
+                <div class="divider"></div>
+                <p>Ready to take control of your finances? Let's discuss how I can help you</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Office Address</h4>
+                            <p>Suite 402, Finance Tower, MG Road<br>Bangalore, Karnataka - 560001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210<br>+91 80 4123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>arjun.mehta@email.com<br>contact@caarjunmehta.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Monday - Saturday<br>10:00 AM - 7:00 PM IST</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Send a Message</h3>
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number *</label>
+                            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="place">City / Place *</label>
+                            <input type="text" id="place" name="place" placeholder="Enter your city or place" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <input type="text" id="service" name="service" placeholder="e.g., Tax Filing, Investment Planning">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message (Optional)</label>
+                            <textarea id="message" name="message" placeholder="Tell me more about your requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            Send via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>CA <span>Arjun Mehta</span></h3>
+                    <p>Your trusted partner in financial success. Providing expert accounting, taxation, and wealth management services with integrity and professionalism since 2009.</p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919876543210" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Taxation</a></li>
+                        <li><a href="#services">Audit</a></li>
+                        <li><a href="#financial-planning">Financial Planning</a></li>
+                        <li><a href="#services">Business Advisory</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 CA Arjun Mehta. All rights reserved. | Chartered Accountant - ICAI Member</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Book a Call Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>Book a Free Consultation Call</h2>
+            <p>Fill in your details and I'll get back to you within 24 hours.</p>
+            <form onsubmit="handleModalSubmit(event)">
+                <div class="form-group">
+                    <label for="modalName">Full Name *</label>
+                    <input type="text" id="modalName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalMobile">Mobile Number *</label>
+                    <input type="tel" id="modalMobile" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalPlace">City / Place *</label>
+                    <input type="text" id="modalPlace" placeholder="Enter your city or place" required>
+                </div>
+                <button type="submit" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    Book Call via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="#" class="btn-primary" onclick="openModal(); return false;">
+            <i class="fas fa-phone-alt"></i>
+            Book a Call
+        </a>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Handle Contact Form Submit (WhatsApp)
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const mobile = document.getElementById('mobile').value;
+            const place = document.getElementById('place').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            let whatsappMessage = `Hello CA Arjun Mehta,%0A%0AI am interested in your services. Here are my details:%0A%0A`;
+            whatsappMessage += `*Name:* ${name}%0A`;
+            whatsappMessage += `*Mobile:* ${mobile}%0A`;
+            whatsappMessage += `*Place:* ${place}%0A`;
+            if (service) whatsappMessage += `*Service Interested:* ${service}%0A`;
+            if (message) whatsappMessage += `*Message:* ${message}%0A`;
+            whatsappMessage += `%0APlease contact me at your earliest convenience. Thank you!`;
+
+            const whatsappURL = `https://wa.me/919876543210?text=${whatsappMessage}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Handle Modal Submit (WhatsApp)
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('modalName').value;
+            const mobile = document.getElementById('modalMobile').value;
+            const place = document.getElementById('modalPlace').value;
+
+            let whatsappMessage = `Hello CA Arjun Mehta,%0A%0AI would like to book a consultation call. Here are my details:%0A%0A`;
+            whatsappMessage += `*Name:* ${name}%0A`;
+            whatsappMessage += `*Mobile:* ${mobile}%0A`;
+            whatsappMessage += `*Place:* ${place}%0A`;
+            whatsappMessage += `%0APlease let me know a suitable time for the call. Thank you!`;
+
+            const whatsappURL = `https://wa.me/919876543210?text=${whatsappMessage}`;
+            window.open(whatsappURL, '_blank');
+            closeModal();
+        }
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        document.getElementById('navLinks').classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
