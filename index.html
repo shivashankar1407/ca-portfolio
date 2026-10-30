@@ -1,1638 +1,752 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CA Arjun Mehta | Chartered Accountant & Financial Advisor</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a365d;
-            --primary-light: #2c5282;
-            --accent: #c9a227;
-            --accent-hover: #b8941f;
-            --text-dark: #1a202c;
-            --text-light: #4a5568;
-            --bg-light: #f7fafc;
-            --white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: rgba(201, 162, 39, 0.1);
-            border-radius: 50%;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            color: var(--white);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero-content h1 span {
-            color: var(--accent);
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-content p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid var(--white);
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-outline:hover {
-            background: var(--white);
-            color: var(--primary);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image img {
-            width: 400px;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            border: 4px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2rem;
-            color: var(--accent);
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-        }
-
-        .stat-item p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .divider {
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--bg-light);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 100%;
-            height: 100%;
-            border: 3px solid var(--accent);
-            border-radius: 20px;
-            z-index: -1;
-        }
-
-        .about-content h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .about-content p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .credentials {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .credential-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .credential-item i {
-            color: var(--accent);
-            font-size: 1.25rem;
-        }
-
-        .credential-item span {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 0.9rem;
-        }
-
-        /* Services Section */
-        .services {
-            background: var(--white);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(201, 162, 39, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-icon i {
-            font-size: 1.5rem;
-            color: var(--accent);
-        }
-
-        .service-card h3 {
-            font-size: 1.25rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .service-features li i {
-            color: var(--accent);
-            font-size: 0.8rem;
-        }
-
-        /* Financial Planning Detail Section */
-        .financial-planning {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-        }
-
-        .financial-planning .section-header h2,
-        .financial-planning .section-header p {
-            color: var(--white);
-        }
-
-        .financial-planning .divider {
-            background: var(--accent);
-        }
-
-        .fp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .fp-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .fp-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .fp-card .fp-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .fp-card .fp-icon i {
-            color: var(--white);
-            font-size: 1.25rem;
-        }
-
-        .fp-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .fp-card p {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .fp-card ul {
-            list-style: none;
-        }
-
-        .fp-card ul li {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
-
-        .fp-card ul li i {
-            color: var(--accent);
-            margin-top: 0.25rem;
-            font-size: 0.8rem;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            background: var(--bg-light);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .portfolio-item {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .portfolio-content {
-            padding: 1.5rem;
-        }
-
-        .portfolio-content h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-content p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        /* Social Media Section */
-        .social-section {
-            background: var(--white);
-            text-align: center;
-        }
-
-        .social-grid {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .social-card {
-            width: 100px;
-            height: 100px;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .social-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .social-card i {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .social-card span {
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .social-linkedin { background: #0077b5; color: white; }
-        .social-twitter { background: #1da1f2; color: white; }
-        .social-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
-        .social-facebook { background: #4267B2; color: white; }
-        .social-youtube { background: #FF0000; color: white; }
-        .social-whatsapp { background: #25D366; color: white; }
-
-        /* Contact Section */
-        .contact {
-            background: var(--bg-light);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item i {
-            color: var(--accent);
-            font-size: 1.25rem;
-            margin-top: 0.25rem;
-        }
-
-        .contact-item div h4 {
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-            font-size: 1rem;
-        }
-
-        .contact-item div p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .contact-form {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .whatsapp-btn {
-            width: 100%;
-            background: #25D366;
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-btn:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 3rem 2rem 1rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand h3 span {
-            color: var(--accent);
-        }
-
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .footer-links h4 {
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--accent);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1.5rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-
-        /* Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2.5rem;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            animation: modalSlide 0.3s ease;
-        }
-
-        @keyframes modalSlide {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: color 0.3s ease;
-        }
-
-        .modal-close:hover {
-            color: var(--primary);
-        }
-
-        .modal h2 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .modal p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Floating CTA */
-        .floating-cta {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 999;
-        }
-
-        .floating-cta .btn-primary {
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-image {
-                order: -1;
-            }
-
-            .hero-image img {
-                width: 300px;
-                height: 300px;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image::before {
-                display: none;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                flex-direction: column;
-                padding: 1.5rem;
-                box-shadow: var(--shadow);
-                gap: 1rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .floating-cta {
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .floating-cta .btn-primary {
-                padding: 0.75rem 1.25rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-light);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-light);
-        }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FinTax Insights by CA Vivek | Chartered Accountant — Tax, GST, NRI & Business Advisory</title>
+<meta name="description" content="FinTax Insights by CA Vivek — professional help with income tax & GST notices, tax compliance, tax & financial planning, NRI services and business & corporate services."/>
+<style>
+:root{--navy:#0b2447;--navy2:#133a6d;--gold:#c9a227;--gold2:#e6c968;--ink:#1f2a37;--muted:#5b6b7c;--bg:#f5f8fc;--card:#ffffff;--line:#e3e9f2;--radius:14px;--shadow:0 6px 24px rgba(11,36,71,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif;color:var(--ink);background:#fff;line-height:1.6;padding-bottom:64px}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;color:var(--navy);line-height:1.25;font-weight:700}
+a{color:var(--navy2);text-decoration:none}
+a:hover{color:var(--gold)}
+img{max-width:100%}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+.section{padding:64px 0}
+.kicker{color:var(--gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+.center{text-align:center}
+
+/* ---------- Header ---------- */
+.top-strip{background:var(--navy);color:#dbe6f5;font-size:.85rem}
+.top-strip .container{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;padding:7px 20px}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 12px rgba(11,36,71,.06)}
+.navwrap{display:flex;align-items:center;justify-content:space-between;min-height:72px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:var(--gold2);display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-weight:700;font-size:1.1rem;border:2px solid var(--gold)}
+.brand-text{font-family:Georgia,serif;font-size:1.18rem;font-weight:700;color:var(--navy);line-height:1.1;display:flex;flex-direction:column}
+.brand-text small{font-family:'Segoe UI',sans-serif;font-size:.68rem;font-weight:600;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
+.main-nav{display:flex;align-items:center;gap:2px}
+.nav-item{position:relative}
+.nav-link{display:block;padding:24px 13px;font-size:.93rem;font-weight:600;color:var(--ink);border-bottom:3px solid transparent;white-space:nowrap}
+.nav-link:hover,.nav-item.active .nav-link{color:var(--navy);border-bottom-color:var(--gold)}
+.nav-link .caret{font-size:.7rem;color:var(--gold)}
+.dropdown{position:absolute;top:100%;left:0;min-width:250px;background:#fff;border:1px solid var(--line);border-radius:0 0 12px 12px;box-shadow:var(--shadow);display:none;padding:8px 0}
+.nav-item:hover .dropdown,.nav-item:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:9px 18px;font-size:.9rem;color:var(--ink);white-space:nowrap}
+.dropdown a:hover{background:var(--bg);color:var(--navy)}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;font-size:1.3rem;padding:6px 12px;color:var(--navy);cursor:pointer}
+.mobile-panel{display:none;border-top:1px solid var(--line);background:#fff;max-height:70vh;overflow:auto}
+.mobile-panel.open{display:block}
+.mobile-panel a{display:block;padding:12px 20px;font-weight:600;border-bottom:1px solid var(--line)}
+.mobile-panel details{border-bottom:1px solid var(--line)}
+.mobile-panel summary{padding:12px 20px;font-weight:600;cursor:pointer;list-style:none}
+.mobile-panel details a{padding-left:34px;font-weight:400}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-block;padding:13px 28px;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;border:2px solid transparent;transition:.2s}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#b18d1c);color:#fff}
+.btn-gold:hover{background:linear-gradient(135deg,#d8b53a,var(--gold));color:#fff;transform:translateY(-1px)}
+.btn-outline{border-color:var(--navy);color:var(--navy);background:#fff}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy2);color:#fff}
+
+/* ---------- Hero ---------- */
+.hero{background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 60%,#1c4d8c 100%);color:#fff;padding:84px 0 92px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.28),transparent 70%)}
+.hero h1{color:#fff;font-size:clamp(1.9rem,4.2vw,3rem);max-width:760px}
+.hero h1 .gold{color:var(--gold2)}
+.hero p.sub{margin:18px 0 30px;font-size:1.1rem;color:#cfdcee;max-width:640px}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.hero-badges span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);padding:7px 15px;border-radius:999px;font-size:.85rem}
+
+/* ---------- Trust strip ---------- */
+.trust{background:var(--bg);border-bottom:1px solid var(--line)}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;padding:34px 0}
+.trust-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;text-align:center;box-shadow:var(--shadow)}
+.trust-card .num{font-family:Georgia,serif;font-size:1.9rem;font-weight:700;color:var(--navy)}
+.trust-card .num em{color:var(--gold);font-style:normal}
+.trust-card p{color:var(--muted);font-size:.88rem}
+
+/* ---------- Cards & grids ---------- */
+.grid{display:grid;gap:22px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.card h3{font-size:1.12rem;margin-bottom:10px}
+.card .icon{font-size:1.7rem;margin-bottom:12px}
+.card ul{margin:10px 0 0 18px;color:var(--muted);font-size:.92rem}
+.card ul li{margin:5px 0}
+.pathway{position:relative;overflow:hidden}
+.pathway::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--gold),var(--navy2))}
+.learn{display:inline-block;margin-top:14px;font-weight:700;font-size:.9rem;color:var(--gold)}
+.learn::after{content:" →"}
+
+/* ---------- Page hero (inner pages) ---------- */
+.page-hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:56px 0}
+.page-hero h1{color:#fff;font-size:clamp(1.6rem,3.4vw,2.4rem)}
+.page-hero p{color:#cfdcee;max-width:760px;margin-top:12px}
+.crumbs{font-size:.82rem;color:var(--gold2);margin-bottom:14px}
+.crumbs a{color:var(--gold2)}
+
+/* ---------- Section page layout ---------- */
+.page-grid{display:grid;grid-template-columns:1fr 330px;gap:34px;padding:52px 0}
+.main-col h2{font-size:1.5rem;margin:34px 0 14px}
+.main-col h2:first-child{margin-top:0}
+.main-col p{margin-bottom:12px;color:#37485a}
+.checklist{list-style:none;margin:6px 0 8px}
+.checklist li{padding:9px 0 9px 32px;position:relative;border-bottom:1px dashed var(--line);color:#37485a}
+.checklist li::before{content:"✓";position:absolute;left:4px;color:var(--gold);font-weight:700}
+.group-card{border:1px solid var(--line);border-radius:var(--radius);margin-bottom:20px;overflow:hidden;box-shadow:var(--shadow)}
+.group-card header{background:var(--bg);padding:14px 22px;border-bottom:1px solid var(--line)}
+.group-card header h3{margin:0;font-size:1.05rem}
+.group-card .items{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.group-card .item{padding:16px 22px;border-bottom:1px solid var(--line)}
+.group-card .item:nth-child(odd){border-right:1px solid var(--line)}
+.group-card .item h4{font-size:.96rem;color:var(--navy);margin-bottom:4px}
+.group-card .item p{font-size:.86rem;color:var(--muted);margin:0}
+.item-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:16px}
+.item-grid .mini{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+.item-grid .mini h4{font-size:.95rem;color:var(--navy);margin-bottom:6px}
+.item-grid .mini p{font-size:.85rem;color:var(--muted);margin:0}
+.note-box{background:#fffbeb;border:1px solid #ecd98a;border-left:4px solid var(--gold);border-radius:10px;padding:14px 18px;font-size:.9rem;color:#6b5410;margin:18px 0}
+.steps{counter-reset:step;list-style:none;margin-top:8px}
+.steps li{counter-increment:step;position:relative;padding:14px 0 14px 56px;border-bottom:1px dashed var(--line)}
+.steps li::before{content:counter(step);position:absolute;left:0;top:12px;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:Georgia,serif}
+.steps li strong{display:block;color:var(--navy)}
+.steps li span{font-size:.9rem;color:var(--muted)}
+.faq details{border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:#fff;box-shadow:var(--shadow)}
+.faq summary{padding:15px 18px;font-weight:600;cursor:pointer;list-style:none;position:relative;padding-right:44px;color:var(--navy)}
+.faq summary::after{content:"+";position:absolute;right:18px;color:var(--gold);font-size:1.3rem;font-weight:700}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 18px 16px;color:var(--muted);font-size:.92rem}
+
+/* ---------- Sidebar ---------- */
+.side-col{display:flex;flex-direction:column;gap:20px}
+.side-card{background:var(--navy);color:#fff;border-radius:var(--radius);padding:24px}
+.side-card h3{color:#fff;font-size:1.1rem;margin-bottom:10px}
+.side-card p{color:#cfdcee;font-size:.9rem;margin-bottom:16px}
+.side-card .btn{width:100%;text-align:center}
+.side-card.light{background:#fff;border:1px solid var(--line);color:var(--ink);box-shadow:var(--shadow)}
+.side-card.light h3{color:var(--navy);font-size:1rem}
+.side-card.light p{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.82rem;font-weight:600;color:var(--navy2)}
+a.chip:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ---------- CTA band ---------- */
+.cta-band{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:18px;color:#fff;padding:44px 40px;text-align:center;margin:10px 0 20px}
+.cta-band h2{color:#fff;font-size:1.7rem;margin-bottom:10px}
+.cta-band p{color:#cfdcee;max-width:600px;margin:0 auto 24px}
+
+/* ---------- Consultation ---------- */
+.consult-types{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:26px 0 40px}
+.type-card{border:2px solid var(--line);border-radius:var(--radius);padding:22px;cursor:pointer;background:#fff;transition:.2s;position:relative}
+.type-card:hover{border-color:var(--gold)}
+.type-card.selected{border-color:var(--gold);background:#fffdf5;box-shadow:var(--shadow)}
+.type-card.selected::after{content:"✓ Selected";position:absolute;top:12px;right:14px;font-size:.72rem;font-weight:700;color:var(--gold)}
+.type-card h4{color:var(--navy);margin:8px 0 6px;font-size:1rem}
+.type-card p{font-size:.85rem;color:var(--muted);margin:0}
+form.consult-form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-grid .full{grid-column:1/-1}
+label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--navy)}
+input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:9px;font-size:.95rem;font-family:inherit;background:#fbfcfe}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.form-success{display:none;background:#ecfdf3;border:1px solid #a7e6c0;border-radius:12px;padding:22px;margin-top:16px}
+.form-success h3{color:#0a7a3d;margin-bottom:6px}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:start}
+.avatar{width:100%;max-width:340px;aspect-ratio:4/4.6;border-radius:16px;background:linear-gradient(150deg,var(--navy),var(--navy2));display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;color:var(--gold2);font-size:3rem;margin:0 auto;border:3px solid var(--gold)}
+.fact-list{list-style:none}
+.fact-list li{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:.94rem}
+.fact-list li strong{color:var(--navy)}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+
+/* ---------- Articles ---------- */
+.article{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#fff;display:flex;flex-direction:column}
+.article .cover{height:110px;background:linear-gradient(135deg,var(--navy),#1c4d8c);display:flex;align-items:center;justify-content:center;font-size:2rem}
+.article .body{padding:20px;flex:1}
+.article h4{color:var(--navy);font-size:1rem;margin:8px 0 8px;line-height:1.35}
+.article p{font-size:.86rem;color:var(--muted)}
+.tag{display:inline-block;background:#fdf6e0;border:1px solid #ecd98a;color:#8a6d12;border-radius:999px;padding:3px 12px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+/* ---------- Footer & bottom bar ---------- */
+footer{background:var(--navy);color:#b9c9dd;margin-top:60px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;padding:50px 0 30px}
+footer h4{color:#fff;font-family:Georgia,serif;margin-bottom:14px;font-size:1rem}
+footer a{display:block;color:#b9c9dd;font-size:.9rem;padding:4px 0}
+footer a:hover{color:var(--gold2)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.14);padding:16px 0;font-size:.8rem;text-align:center}
+@media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+.bottom-bar{position:fixed;left:0;right:0;bottom:0;z-index:1100;background:var(--navy);border-top:2px solid var(--gold);display:flex;align-items:center;justify-content:center;gap:16px;padding:9px 14px;color:#fff;flex-wrap:wrap}
+.bottom-bar .follow-label{font-size:.85rem;font-weight:700;color:var(--gold2);letter-spacing:.04em}
+.soc{display:flex;gap:9px}
+.soc a{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:.2s}
+.soc a:hover{background:var(--gold);transform:translateY(-2px)}
+.soc svg{width:16px;height:16px;fill:#fff}
+.divider{width:1px;height:24px;background:rgba(255,255,255,.25)}
+.book-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),#b18d1c);color:#fff;font-weight:700;font-size:.88rem;padding:9px 20px;border-radius:999px}
+.book-btn:hover{color:#fff;background:linear-gradient(135deg,#d8b53a,var(--gold))}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1024px){
+  .main-nav{display:none}
+  .burger{display:block}
+  .page-grid{grid-template-columns:1fr}
+  .group-card .items{grid-template-columns:1fr}
+  .group-card .item:nth-child(odd){border-right:none}
+}
+</style>
+<base target="_blank">
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">CA <span>Arjun Mehta</span></a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#financial-planning">Financial Planning</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#" class="btn-primary" onclick="openModal()">Book a Call</a></li>
-            </ul>
-            <div class="mobile-menu" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
+<div class="top-strip">
+  <div class="container">
+    <span>📞 +91-XXXXXXXXXX</span>
+    <span>✉ hello@fintaxinsights.in</span>
+    <span>🕒 Mon–Sat, 10:00 AM – 7:00 PM IST</span>
+  </div>
+</div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Your Trusted <span>Financial Partner</span></h1>
-                <p class="subtitle">Chartered Accountant & Wealth Management Expert</p>
-                <p>With over 15 years of experience in taxation, auditing, and financial planning, I help individuals and businesses achieve their financial goals through strategic planning and expert guidance.</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn-primary">Explore Services</a>
-                    <a href="#contact" class="btn-outline">Get in Touch</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h3>15+</h3>
-                        <p>Years Experience</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>500+</h3>
-                        <p>Clients Served</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>98%</h3>
-                        <p>Success Rate</p>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop" alt="CA Arjun Mehta">
-            </div>
-        </div>
-    </section>
+<header class="site-header">
+  <div class="container navwrap">
+    <a class="brand" href="#home">
+      <span class="mark">FT</span>
+      <span class="brand-text">FinTax Insights<small>by CA Vivek</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav"></nav>
+    <button class="burger" id="burger" aria-label="Open menu">☰</button>
+  </div>
+  <div class="mobile-panel" id="mobilePanel"></div>
+</header>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <h2>About Me</h2>
-                <div class="divider"></div>
-                <p>Dedicated to delivering excellence in financial services with integrity and professionalism</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-image fade-in">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=500&fit=crop" alt="Professional Workspace">
-                </div>
-                <div class="about-content fade-in">
-                    <h3>Expert Financial Guidance for Your Future</h3>
-                    <p>I am a qualified Chartered Accountant with extensive experience in providing comprehensive financial solutions. My expertise spans across tax planning, audit assurance, investment advisory, and wealth management.</p>
-                    <p>My mission is to empower clients with the knowledge and strategies they need to make informed financial decisions. Whether you are an individual planning for retirement or a business seeking growth, I provide personalized solutions tailored to your unique needs.</p>
-                    <div class="credentials">
-                        <div class="credential-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>ICAI Member</span>
-                        </div>
-                        <div class="credential-item">
-                            <i class="fas fa-award"></i>
-                            <span>CFA Level II</span>
-                        </div>
-                        <div class="credential-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>SEBI Registered</span>
-                        </div>
-                        <div class="credential-item">
-                            <i class="fas fa-globe"></i>
-                            <span>IFRS Certified</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<main id="app"></main>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <h2>Professional Services</h2>
-                <div class="divider"></div>
-                <p>Comprehensive financial and accounting solutions for individuals and businesses</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Taxation Services</h3>
-                    <p>Complete tax planning and filing services for individuals and businesses including Income Tax, GST, and TDS compliance.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Income Tax Return Filing</li>
-                        <li><i class="fas fa-check"></i> GST Registration & Returns</li>
-                        <li><i class="fas fa-check"></i> Tax Planning & Optimization</li>
-                        <li><i class="fas fa-check"></i> Tax Audit Assistance</li>
-                    </ul>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-search-dollar"></i>
-                    </div>
-                    <h3>Audit & Assurance</h3>
-                    <p>Independent audit services ensuring accuracy and compliance with regulatory standards for your financial statements.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Statutory Audits</li>
-                        <li><i class="fas fa-check"></i> Internal Audits</li>
-                        <li><i class="fas fa-check"></i> GST Audits</li>
-                        <li><i class="fas fa-check"></i> Due Diligence</li>
-                    </ul>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Business Advisory</h3>
-                    <p>Strategic business consulting to help startups and established companies optimize operations and maximize profitability.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Business Registration</li>
-                        <li><i class="fas fa-check"></i> Financial Projections</li>
-                        <li><i class="fas fa-check"></i> MIS Reports</li>
-                        <li><i class="fas fa-check"></i> Valuation Services</li>
-                    </ul>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h3>Compliance Services</h3>
-                    <p>End-to-end compliance management ensuring your business meets all statutory requirements on time, every time.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> ROC Filings</li>
-                        <li><i class="fas fa-check"></i> LLP Compliance</li>
-                        <li><i class="fas fa-check"></i> Secretarial Services</li>
-                        <li><i class="fas fa-check"></i> Annual Compliance</li>
-                    </ul>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Investment Advisory</h3>
-                    <p>Data-driven investment strategies to help you build and preserve wealth across equity, debt, and alternative assets.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Portfolio Management</li>
-                        <li><i class="fas fa-check"></i> Mutual Fund Advisory</li>
-                        <li><i class="fas fa-check"></i> Stock Market Guidance</li>
-                        <li><i class="fas fa-check"></i> Risk Assessment</li>
-                    </ul>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <h3>Loan & Funding</h3>
-                    <p>Expert assistance in securing business loans, home loans, and project funding with optimal terms and rates.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Home Loan Advisory</li>
-                        <li><i class="fas fa-check"></i> Business Loan Facilitation</li>
-                        <li><i class="fas fa-check"></i> Project Finance</li>
-                        <li><i class="fas fa-check"></i> CMA Data Preparation</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Financial Planning Services Section -->
-    <section class="financial-planning" id="financial-planning">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <h2>Financial Planning Services</h2>
-                <div class="divider"></div>
-                <p>Detailed, personalized financial strategies to secure your future and achieve your life goals</p>
-            </div>
-            <div class="fp-grid">
-                <div class="fp-card fade-in">
-                    <div class="fp-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>Long-Term Investment Planning</h3>
-                    <p>Build sustainable wealth with strategic long-term investment plans tailored to your risk appetite and financial goals.</p>
-                    <ul>
-                        <li><i class="fas fa-chevron-right"></i> Equity & Mutual Fund Portfolio Creation</li>
-                        <li><i class="fas fa-chevron-right"></i> Retirement Corpus Planning (NPS, PPF, EPF)</li>
-                        <li><i class="fas fa-chevron-right"></i> SIP Strategy & Wealth Compounding</li>
-                        <li><i class="fas fa-chevron-right"></i> Tax-Efficient Investment Structures</li>
-                        <li><i class="fas fa-chevron-right"></i> Annual Portfolio Review & Rebalancing</li>
-                    </ul>
-                </div>
-                <div class="fp-card fade-in">
-                    <div class="fp-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>Home Loan & Real Estate Planning</h3>
-                    <p>Navigate the complexities of home financing with expert guidance on loans, EMIs, tax benefits, and property investment.</p>
-                    <ul>
-                        <li><i class="fas fa-chevron-right"></i> Home Loan Eligibility Assessment</li>
-                        <li><i class="fas fa-chevron-right"></i> EMI vs. Tenure Optimization</li>
-                        <li><i class="fas fa-chevron-right"></i> Tax Benefits under Section 24 & 80C</li>
-                        <li><i class="fas fa-chevron-right"></i> Balance Transfer & Prepayment Strategy</li>
-                        <li><i class="fas fa-chevron-right"></i> Joint Loan & Co-Applicant Advisory</li>
-                    </ul>
-                </div>
-                <div class="fp-card fade-in">
-                    <div class="fp-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Marriage & Couple Investment Plans</h3>
-                    <p>Specialized financial planning for newlyweds and couples to align finances, set joint goals, and build wealth together.</p>
-                    <ul>
-                        <li><i class="fas fa-chevron-right"></i> Joint Financial Goal Setting</li>
-                        <li><i class="fas fa-chevron-right"></i> Wedding Expense Planning & Budgeting</li>
-                        <li><i class="fas fa-chevron-right"></i> Couple's Investment Portfolio</li>
-                        <li><i class="fas fa-chevron-right"></i> Emergency Fund Planning</li>
-                        <li><i class="fas fa-chevron-right"></i> Insurance Planning for Spouses</li>
-                    </ul>
-                </div>
-                <div class="fp-card fade-in">
-                    <div class="fp-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>Financial Health Review</h3>
-                    <p>Get a comprehensive analysis of your current financial status with actionable insights to improve your financial well-being.</p>
-                    <ul>
-                        <li><i class="fas fa-chevron-right"></i> Net Worth Analysis & Tracking</li>
-                        <li><i class="fas fa-chevron-right"></i> Cash Flow & Budget Analysis</li>
-                        <li><i class="fas fa-chevron-right"></i> Debt-to-Income Ratio Assessment</li>
-                        <li><i class="fas fa-chevron-right"></i> Insurance Gap Analysis</li>
-                        <li><i class="fas fa-chevron-right"></i> Personalized Improvement Roadmap</li>
-                    </ul>
-                </div>
-                <div class="fp-card fade-in">
-                    <div class="fp-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Child Education & Future Planning</h3>
-                    <p>Secure your child's future with dedicated education funds and long-term savings plans for higher studies.</p>
-                    <ul>
-                        <li><i class="fas fa-chevron-right"></i> Education Cost Projection</li>
-                        <li><i class="fas fa-chevron-right"></i> Sukanya Samriddhi / Child Plans</li>
-                        <li><i class="fas fa-chevron-right"></i> Education Loan Guidance</li>
-                        <li><i class="fas fa-chevron-right"></i> Overseas Education Funding</li>
-                    </ul>
-                </div>
-                <div class="fp-card fade-in">
-                    <div class="fp-icon">
-                        <i class="fas fa-umbrella"></i>
-                    </div>
-                    <h3>Insurance & Risk Management</h3>
-                    <p>Protect your family and assets with the right mix of life, health, and general insurance tailored to your needs.</p>
-                    <ul>
-                        <li><i class="fas fa-chevron-right"></i> Term Life Insurance Planning</li>
-                        <li><i class="fas fa-chevron-right"></i> Health & Critical Illness Coverage</li>
-                        <li><i class="fas fa-chevron-right"></i> Asset Protection Strategies</li>
-                        <li><i class="fas fa-chevron-right"></i> Claim Assistance & Review</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <h2>Portfolio & Achievements</h2>
-                <div class="divider"></div>
-                <p>A glimpse of my professional journey and notable accomplishments</p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop" alt="Client Success">
-                    <div class="portfolio-content">
-                        <h3>500+ Clients Served</h3>
-                        <p>Trusted by individuals, SMEs, and corporates across India for comprehensive financial solutions.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=400&h=300&fit=crop" alt="Tax Savings">
-                    <div class="portfolio-content">
-                        <h3>₹50Cr+ Tax Saved</h3>
-                        <p>Helped clients save over ₹50 Crores in taxes through strategic planning and compliance.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop" alt="Business Growth">
-                    <div class="portfolio-content">
-                        <h3>200+ Startups Guided</h3>
-                        <p>Mentored and advised over 200 startups from incorporation to scaling and funding.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=400&h=300&fit=crop" alt="Awards">
-                    <div class="portfolio-content">
-                        <h3>Award-Winning Practice</h3>
-                        <p>Recognized by ICAI and industry bodies for excellence in client service and ethical practice.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Section -->
-    <section class="social-section" id="social">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <h2>Connect With Me</h2>
-                <div class="divider"></div>
-                <p>Follow me on social media for daily financial tips, market updates, and insights</p>
-            </div>
-            <div class="social-grid fade-in">
-                <a href="https://linkedin.com" target="_blank" class="social-card social-linkedin">
-                    <i class="fab fa-linkedin-in"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="social-card social-twitter">
-                    <i class="fab fa-twitter"></i>
-                    <span>Twitter</span>
-                </a>
-                <a href="https://instagram.com" target="_blank" class="social-card social-instagram">
-                    <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
-                </a>
-                <a href="https://facebook.com" target="_blank" class="social-card social-facebook">
-                    <i class="fab fa-facebook-f"></i>
-                    <span>Facebook</span>
-                </a>
-                <a href="https://youtube.com" target="_blank" class="social-card social-youtube">
-                    <i class="fab fa-youtube"></i>
-                    <span>YouTube</span>
-                </a>
-                <a href="https://wa.me/919876543210" target="_blank" class="social-card social-whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <h2>Get In Touch</h2>
-                <div class="divider"></div>
-                <p>Ready to take control of your finances? Let's discuss how I can help you</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info fade-in">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Office Address</h4>
-                            <p>Suite 402, Finance Tower, MG Road<br>Bangalore, Karnataka - 560001</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+91 98765 43210<br>+91 80 4123 4567</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>arjun.mehta@email.com<br>contact@caarjunmehta.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Working Hours</h4>
-                            <p>Monday - Saturday<br>10:00 AM - 7:00 PM IST</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form fade-in">
-                    <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Send a Message</h3>
-                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mobile">Mobile Number *</label>
-                            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="place">City / Place *</label>
-                            <input type="text" id="place" name="place" placeholder="Enter your city or place" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <input type="text" id="service" name="service" placeholder="e.g., Tax Filing, Investment Planning">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message (Optional)</label>
-                            <textarea id="message" name="message" placeholder="Tell me more about your requirements..."></textarea>
-                        </div>
-                        <button type="submit" class="whatsapp-btn">
-                            <i class="fab fa-whatsapp"></i>
-                            Send via WhatsApp
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>CA <span>Arjun Mehta</span></h3>
-                    <p>Your trusted partner in financial success. Providing expert accounting, taxation, and wealth management services with integrity and professionalism since 2009.</p>
-                    <div class="footer-social">
-                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/919876543210" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Taxation</a></li>
-                        <li><a href="#services">Audit</a></li>
-                        <li><a href="#financial-planning">Financial Planning</a></li>
-                        <li><a href="#services">Business Advisory</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Disclaimer</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2024 CA Arjun Mehta. All rights reserved. | Chartered Accountant - ICAI Member</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Book a Call Modal -->
-    <div class="modal-overlay" id="modal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <h2>Book a Free Consultation Call</h2>
-            <p>Fill in your details and I'll get back to you within 24 hours.</p>
-            <form onsubmit="handleModalSubmit(event)">
-                <div class="form-group">
-                    <label for="modalName">Full Name *</label>
-                    <input type="text" id="modalName" placeholder="Enter your full name" required>
-                </div>
-                <div class="form-group">
-                    <label for="modalMobile">Mobile Number *</label>
-                    <input type="tel" id="modalMobile" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
-                </div>
-                <div class="form-group">
-                    <label for="modalPlace">City / Place *</label>
-                    <input type="text" id="modalPlace" placeholder="Enter your city or place" required>
-                </div>
-                <button type="submit" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    Book Call via WhatsApp
-                </button>
-            </form>
-        </div>
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <h4>FinTax Insights by CA Vivek</h4>
+        <p class="small">Clear, practical and timely tax advice for individuals, families, NRIs, startups and established businesses. From routine compliance to complex disputes — one firm for your entire tax journey.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#notices">Income Tax & GST Notices</a>
+        <a href="#compliance">Tax Compliance</a>
+        <a href="#planning">Tax & Financial Planning</a>
+        <a href="#nri">NRI Services</a>
+        <a href="#business">Business & Corporate</a>
+      </div>
+      <div>
+        <h4>Firm</h4>
+        <a href="#about">About Us</a>
+        <a href="#home" data-scroll="insights">Tax Insights</a>
+        <a href="#consult">Book Consultation</a>
+        <a href="#about" data-scroll="locations">Office Locations</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:+91XXXXXXXXXX">+91-XXXXXXXXXX</a>
+        <a href="mailto:hello@fintaxinsights.in">hello@fintaxinsights.in</a>
+        <a href="#consult">Request a callback</a>
+      </div>
     </div>
+    <div class="foot-bottom">© 2026 FinTax Insights by CA Vivek. All rights reserved. · General information only — not professional advice. Testimonials/ratings subject to applicable professional conduct rules.</div>
+  </div>
+</footer>
 
-    <!-- Floating CTA -->
-    <div class="floating-cta">
-        <a href="#" class="btn-primary" onclick="openModal(); return false;">
-            <i class="fas fa-phone-alt"></i>
-            Book a Call
-        </a>
+<!-- Requirement: every page shows Follow-us and Book Consultation icons at the bottom -->
+<div class="bottom-bar">
+  <span class="follow-label">Follow us at</span>
+  <div class="soc">
+    <a href="#" aria-label="LinkedIn (add link)" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.1h4.56V23H.22zM8.34 8.1h4.37v2.03h.06c.61-1.15 2.1-2.36 4.32-2.36C21.4 7.77 23 10.06 23 14.28V23h-4.56v-7.73c0-1.84-.03-4.21-2.57-4.21-2.57 0-2.96 2.01-2.96 4.08V23H8.34z"/></svg></a>
+    <a href="#" aria-label="Instagram (add link)" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.31.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.15A4 4 0 1 1 16 12a4 4 0 0 1-4 3.99zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg></a>
+    <a href="#" aria-label="X (add link)" title="X"><svg viewBox="0 0 24 24"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93zM17.61 20.64h2.04L6.49 3.24H4.3z"/></svg></a>
+    <a href="#" aria-label="YouTube (add link)" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12z"/></svg></a>
+    <a href="#" aria-label="Facebook (add link)" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.49h-2.8V24C19.62 23.09 24 18.1 24 12.07z"/></svg></a>
+    <a href="#" aria-label="WhatsApp (add link)" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.87-9.88 9.87m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L.07 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/></svg></a>
+  </div>
+  <div class="divider"></div>
+  <a class="book-btn" href="#consult">📅 Book Consultation</a>
+</div>
+
+<script>
+/* ============================== DATA ============================== */
+const CONSULT_TYPES = [
+  {id:"it-notice",  icon:"📨", name:"Income Tax Notice Consultation", desc:"Scrutiny, demand, mismatch, high-value transaction and reassessment notices."},
+  {id:"gst-notice", icon:"🧾", name:"GST Notice Consultation",        desc:"Suspension, ITC disputes, show-cause notices, refund rejections and appeals."},
+  {id:"compliance", icon:"🗂️", name:"Tax Compliance Consultation",    desc:"ITR filing, TDS, GST returns, registrations and compliance calendars."},
+  {id:"planning",   icon:"🎯", name:"Tax & Financial Planning Consultation", desc:"Personal, family and wealth planning with tax-efficient structuring."},
+  {id:"nri",        icon:"✈️", name:"NRI Tax Consultation",             desc:"Residential status, FEMA, DTAA, property, repatriation and foreign assets."},
+  {id:"business",   icon:"🏢", name:"Business & Corporate Consultation",desc:"Setup, accounting, audit, ROC compliance, GST advisory and virtual CFO."}
+];
+
+const NAV = [
+  {id:"home",       label:"Home"},
+  {id:"notices",    label:"Income Tax & GST Notices", children:[["Income Tax Notices","notices/income-tax"],["GST Notices","notices/gst"],["Appeals, Penalties & Reassessment","notices"]]},
+  {id:"compliance", label:"Tax Compliance", children:[["Income Tax Return Filing","compliance"],["TDS/TCS Returns","compliance"],["GST Registration & Amendments","compliance"],["GST Return Filing","compliance"]]},
+  {id:"planning",   label:"Tax & Financial Planning", children:[["Salaried Individual Tax Planning","planning"],["Family Tax Planning","planning"],["Wealth Creation & Investing","planning"],["HNI Tax & Financial Planning","planning"]]},
+  {id:"nri",        label:"NRI Services", children:[["NRI ITR Filing","nri"],["FEMA & Residential Status","nri"],["Property & Capital Gains","nri"],["DTAA & Foreign Assets","nri"]]},
+  {id:"business",   label:"Business & Corporate Services", children:[["Company & Entity Incorporation","business/incorporation"],["Accounting & Bookkeeping","business/accounting"],["Audit & Assurance","business/audit"],["Corporate & ROC Compliance","business/roc"],["Business Tax & GST Advisory","business/advisory"],["CFO & Business Advisory","business/cfo"]]},
+  {id:"about",      label:"About Us"},
+  {id:"consult",    label:"Book Consultation"}
+];
+
+const SECTIONS = {
+  notices:{
+    title:"Income Tax & GST Notice Resolution",
+    tag:"Expert assistance for notices, scrutiny, demands, disputes, assessments and appeals — with calm, structured responses and firm representation.",
+    consult:"Notice", consultId:"it-notice",
+    who:[
+      "Individuals and families who have received an income tax notice",
+      "Salaried employees facing ITR mismatch or high-value transaction queries",
+      "Businesses, freelancers and GST-registered entities facing departmental proceedings",
+      "NRIs with notices touching Indian income, property or assets"
+    ],
+    note:"Deadlines in tax proceedings are strict. Share your notice as soon as you receive it — early, well-documented responses lead to the best outcomes.",
+    groups:[
+      {slug:"income-tax", name:"Income Tax Notices", items:[
+        {t:"Income Tax Notices", d:"Careful replies to notices under any section, filed with acknowledgment (DIN) tracking."},
+        {t:"Scrutiny & Assessment Notices", d:"Complete handling of scrutiny assessments — from questionnaire replies to draft and final orders."},
+        {t:"Search, Survey & Investigation Cases", d:"Structured support during and after search, survey and investigation proceedings."},
+        {t:"Salaried Employees & ITR Mismatches", d:"TDS mismatch, AIS/TIS discrepancies and high-value transaction explanations for salaried taxpayers."},
+        {t:"Property Transactions & Capital Gains Notices", d:"Capital gains queries on property sales/purchases, investment proofs and computation support."},
+        {t:"Tax Demands, Refund Adjustments & Rectification", d:"Demand management, refund adjustment claims and rectification petitions under Section 154."},
+        {t:"High-Value Transactions & Undisclosed Income", d:"Explanations for cash deposits, large transactions and third-party information matches."},
+        {t:"Appeals, Penalties & Reassessment", d:"CIT(A) appeals, penalty defence, stay applications and reassessment strategy."}
+      ]},
+      {slug:"gst", name:"GST Notices", items:[
+        {t:"Registration Suspension & Cancellation", d:"Replies to suspension/cancellation notices and revocation applications."},
+        {t:"GST Return Mismatches", d:"GSTR-1 vs 3B vs 2B mismatch replies backed by full reconciliation."},
+        {t:"Input Tax Credit (ITC) Disputes", d:"ITC denial, Rule 36(4) restrictions and vendor-default linked disputes."},
+        {t:"GST Scrutiny & Departmental Enquiries", d:"Scrutiny replies, ASMT-10 responses and departmental follow-ups."},
+        {t:"Show-Cause Notices & Tax Demands", d:"SCN replies and personal hearing representation before officers."},
+        {t:"GST Refund Disputes & Export Issues", d:"Refund rejections, export refund issues and litigation support."},
+        {t:"Appeals, Penalties & Recovery Proceedings", d:"Appeals before appellate authorities; penalty and recovery handling."}
+      ]}
+    ],
+    prepare:["Copy of the notice (with DIN and acknowledgment number)","Relevant ITR/GST returns and computation workings","Bank statements, invoices and supporting documents","Previous replies or correspondence, if any"],
+    process:[["Review the notice","We study the sections invoked, the information sought and the response deadline."],["Build your position","Documents are assembled and the facts reconciled with your returns and records."],["Draft & file the reply","A precise, well-documented response is prepared and submitted on time."],["Follow through","We track acknowledgments, attend hearings and pursue the matter to closure."]],
+    faqs:[["How quickly should I respond to a notice?","Immediately. Most notices carry strict timelines, and timely, documented replies prevent escalation to demands or penalties."],["Can you represent me before the tax officer?","Yes. We prepare the reply, compile evidence and represent you in personal hearings where needed."],["What if I have already missed the deadline?","Options such as condonation, rectification or appeal may still be available — book a consultation so we can assess the position urgently."]]
+  },
+  compliance:{
+    title:"Tax Compliance",
+    tag:"Routine filings, registrations, tax payments and recurring obligations — handled accurately and on time, every time.",
+    consult:"Tax Compliance", consultId:"compliance",
+    who:["Salaried individuals who want accurate, optimised ITR filing","Businesses and professionals needing dependable recurring compliance","Startups setting up clean compliance from day one","Anyone who wants a proactive compliance calendar instead of deadline panic"],
+    note:"Duplication-control: GST registration and routine filings live here as the primary pages. Complex GST advisory sits under Business Services; disputes and proceedings sit under Notices.",
+    flat:[
+      {t:"Income Tax Return Filing", d:"Accurate filing for salaried, business, capital gains and multiple-income profiles — reconciled against AIS/TIS before submission."},
+      {t:"Advance Tax Computation & Payment", d:"Quarterly advance tax computation, payment scheduling and interest avoidance under Sections 234B/234C."},
+      {t:"TDS/TCS Returns, Payments & Certificates", d:"Monthly TDS returns, deposit tracking, Form 16/16A generation and certificates for buyers/sellers."},
+      {t:"GST Registration & Amendments", d:"New registrations, amendments, additional places of business and core-field changes — the primary registration service (also linked from Business Services)."},
+      {t:"Monthly/Quarterly GST Return Filing", d:"GSTR-1 and GSTR-3B (monthly or QRMP) prepared from your data with sales-purchase reconciliation."},
+      {t:"GST Annual Returns", d:"GSTR-9 and 9C preparation with books reconciliation and advisory on differences."},
+      {t:"LUT Filing & Routine Export GST Compliance", d:"Letter of Undertaking filing and routine export documentation compliance."},
+      {t:"Tax Calendar & Compliance Monitoring", d:"A personalised compliance calendar with proactive reminders, so deadlines are never missed."}
+    ],
+    prepare:["Previous ITR and computation, if any","Form 16, AIS/TIS information and investment proofs","Sales and purchase data (for GST)","Bank statements and TDS certificates"],
+    process:[["Onboard & organise","We collect your documents and set up a structured compliance file."],["Prepare & reconcile","Returns are prepared and reconciled against statements and books."],["File & confirm","Filings are submitted and acknowledgments shared with you."],["Monitor year-round","Reminders, advance tax tracking and a live compliance calendar keep you ahead."]],
+    faqs:[["Do you handle both income tax and GST compliance together?","Yes — one firm manages your entire compliance calendar across direct and indirect tax."],["What happens if there is a mismatch between my books and GSTN?","We reconcile first, explain the difference and correct it before filing — mismatches handled here, disputes handled under Notices."],["Can you take over from my current accountant?","Absolutely. We review prior filings, carry forward balances and transition smoothly."]]
+  },
+  planning:{
+    title:"Tax & Financial Planning",
+    tag:"Personal, couple and family tax planning, financial goals and wealth planning — structured, tax-efficient and aligned to your life stages.",
+    consult:"Tax & Financial Planning", consultId:"planning",
+    who:["Salaried individuals seeking legal tax optimisation","Couples and families wanting a unified financial plan","Parents planning for education and retirement","HNIs needing sophisticated, tax-efficient wealth structuring"],
+    note:"Family Tax Planning covers tax liabilities, capital gains, ownership and tax-efficient transfers. Family Tax & Financial Planning covers the broader household picture — cash flow, investments, insurance, education and retirement. Property disputes sit under Notices; NRI property transactions under NRI Services; forward-looking property decisions are planned here.",
+    flat:[
+      {t:"Salaried Individual Tax Planning", d:"Salary restructuring, deductions and exemptions optimised within the law."},
+      {t:"Family Tax Planning", d:"Tax liabilities, capital gains, ownership structure and tax-efficient transfers within the family."},
+      {t:"Family Tax & Financial Planning", d:"The complete household picture: cash flow, investments, insurance, education and retirement."},
+      {t:"Couple & Joint Financial Planning", d:"Coordinated planning for couples — joint goals, asset allocation and tax efficiency."},
+      {t:"Property Tax & Financial Planning", d:"Forward-looking decisions on buying, selling, holding and investing in property."},
+      {t:"Parents’ Retirement & Financial Planning", d:"Retirement corpus planning, pension optimisation and tax-efficient withdrawal strategies."},
+      {t:"Daughter’s Education & Future Planning", d:"Goal-based education funding with the right instruments and tax treatment."},
+      {t:"Wealth Creation & Tax-Efficient Investing", d:"Portfolio construction across equity, debt and other assets with tax impact modelled."},
+      {t:"HNI Tax & Financial Planning", d:"Sophisticated planning for high-net-worth individuals — multi-asset, multi-goal structuring."}
+    ],
+    prepare:["Current income, expense and investment details","Existing insurance policies and loan statements","Financial goals and time horizons","Previous ITR and capital gains statements, if any"],
+    process:[["Understand your goals","A structured discussion of income, goals, family needs and risk appetite."],["Analyse & model","Your tax position and cash flows are modelled under different scenarios."],["Design the plan","A personalised plan covering tax, investments, insurance and milestones."],["Review annually","The plan is revisited each year — and whenever life changes."]],
+    faqs:[["Is tax planning the same as tax evasion?","No. We work entirely within the law — using exemptions, deductions and timing that Parliament has provided."],["Do you also advise on investments?","We advise on the tax and structure of investments; execution happens through your preferred platforms or advisors."],["Can you plan for my entire family together?","Yes — family-level planning is one of our core strengths, with ownership and transfers structured tax-efficiently."]]
+  },
+  nri:{
+    title:"NRI Services",
+    tag:"NRI taxation, FEMA, DTAA, property transactions and repatriation — clear guidance that works across borders.",
+    consult:"NRI Tax", consultId:"nri",
+    who:["NRIs and OCIs earning income or holding assets in India","Returning Indians planning their residential status and finances","Foreign nationals with Indian income or property","Families with members spread across countries"],
+    note:"NRI property transactions are handled here; property-related notices and disputes are handled under Notices; forward-looking property investment decisions under Tax & Financial Planning.",
+    flat:[
+      {t:"NRI Income Tax Return Filing", d:"India-return filing with global income analysis and complete foreign asset disclosure."},
+      {t:"FEMA Compliance & Residential Status", d:"Residential status determination, FEMA advisory and RBI compliance for transactions."},
+      {t:"NRI Property Transactions & Capital Gains", d:"Sale and purchase of Indian property — TDS, capital gains computation and exemptions."},
+      {t:"Foreign Fund Transfers & Repatriation", d:"Repatriation of sale proceeds, inheritance and NRO balances within FEMA limits."},
+      {t:"DTAA Benefits & Double Taxation Relief", d:"Treaty analysis, Form 67 filing and foreign tax credit claims to avoid double taxation."},
+      {t:"NRE/NRO Accounts & Banking Tax Advisory", d:"Account selection, taxation of interest and practical banking guidance for NRIs."},
+      {t:"Global Income & Foreign Asset Disclosures", d:"Schedule FA reporting of foreign accounts, equity and assets to avoid steep penalties."}
+    ],
+    prepare:["Passport, visa and travel history for status determination","Indian and foreign income details","Property documents and sale/purchase agreements","NRE/NRO bank statements and foreign tax filings"],
+    process:[["Map your status & income","We confirm residential status under the Income-tax Act and FEMA."],["Plan the transaction","Tax, TDS, DTAA and repatriation are planned before you act."],["Execute & file","Returns, disclosures and certificates are prepared and filed."],["Stay compliant","Year-round support for banking, status changes and future transactions."]],
+    faqs:[["I live abroad — do I still need to file in India?","If you have Indian-sourced income or meet filing conditions, yes. We determine this precisely from your facts."],["How is DTAA actually useful to me?","It prevents the same income from being taxed twice and can reduce withholding — but it must be claimed correctly with Form 67."],["Can I repatriate money from my NRO account?","Yes, within FEMA limits and with the right documentation — including Form 15CA/CB where applicable."]]
+  },
+  business:{
+    title:"Business & Corporate Services",
+    tag:"Entity formation, bookkeeping, audit, ROC compliance and business advisory — a full back-office for growing companies.",
+    consult:"Business & Corporate", consultId:"business",
+    who:["Founders incorporating their first company or LLP","Established businesses needing accounting, audit and ROC discipline","Startups seeking structure, registrations and investor-readiness","Growing companies wanting virtual CFO and strategic advisory"],
+    note:"Duplication-control: routine returns and payments sit under Tax Compliance; GST disputes sit under Notices; GST registration lives under Tax Compliance (linked below); CFO services here focus on business finances — personal planning is separate.",
+    groups:[
+      {slug:"incorporation", name:"Company & Entity Incorporation", items:[
+        {t:"Private Limited Company Registration", d:"End-to-end incorporation with name, DIN, MOA/AOA and bank account support."},
+        {t:"LLP Incorporation", d:"LLP setup with partnership agreement and compliance starter kit."},
+        {t:"Partnership Firm Formation", d:"Partnership registration, deed review and tax registrations."},
+        {t:"Proprietorship Setup", d:"Simplest business form — registrations and tax setup done right."},
+        {t:"Startup Structuring & Registration", d:"Entity structure, founder agreements and startup-recognition support."}]},
+      {slug:"registrations", name:"Business Registrations & Licensing", items:[
+        {t:"PAN & TAN Applications", d:"New applications, corrections and duplicate requests."},
+        {t:"Udyam/MSME Registration", d:"Udyam registration to unlock MSME benefits and priority lending."},
+        {t:"Import Export Code (IEC)", d:"IEC application and post-registration compliance guidance."},
+        {t:"Other Applicable Business Registrations", d:"Shops & Establishment, professional tax and sector-specific registrations."}]},
+      {slug:"accounting", name:"Accounting & Bookkeeping", items:[
+        {t:"Day-to-Day Bookkeeping & Data Entry", d:"Systematic recording of transactions with document discipline."},
+        {t:"Monthly Accounting & Reconciliation", d:"Monthly books, bank and vendor reconciliations kept audit-ready."},
+        {t:"Financial Statement Preparation", d:"P&L, balance sheet and notes prepared on time, every time."},
+        {t:"Payroll Accounting", d:"Payroll processing, TDS on salary and statutory deductions."},
+        {t:"Management Reporting & MIS", d:"Dashboards and MIS packs that help you run the business by numbers."}]},
+      {slug:"audit", name:"Audit & Assurance", items:[
+        {t:"Statutory Audit", d:"Companies Act audits conducted with rigour and independence."},
+        {t:"Tax Audit", d:"Section 44AB tax audits with computation and reporting."},
+        {t:"Internal Audit", d:"Process-focused internal audits that surface real control gaps."},
+        {t:"Stock Audit", d:"Physical verification and stock reconciliation audits."},
+        {t:"Special-Purpose Audits", d:"Certifications, project-specific and regulator-requested audits."}]},
+      {slug:"roc", name:"Corporate & ROC Compliance", items:[
+        {t:"Annual MCA/ROC Filings", d:"AOC-4, MGT-7 and event-based filings without penalty risk."},
+        {t:"Director KYC & DIN Compliance", d:"DIR-3 KYC and DIN compliance for every director."},
+        {t:"Board & Shareholder Documentation", d:"Board minutes, resolutions and AGM documentation."},
+        {t:"Statutory Registers & Records", d:"Registers of members, charges and other statutory records maintained."},
+        {t:"Company Closure & Strike-Off", d:"Voluntary strike-off and winding-up support, done cleanly."}]},
+      {slug:"advisory", name:"Business Tax & GST Advisory", items:[
+        {t:"Corporate Income Tax Advisory", d:"Tax positions, MAT/AMT planning and assessments for companies."},
+        {t:"GST Classification & Rate Advisory", d:"Product/service classification, rate positions and advance rulings support."},
+        {t:"ITC Eligibility & Reconciliation Advisory", d:"ITC eligibility frameworks and vendor-level reconciliation."},
+        {t:"Tax Due-Diligence Support", d:"Tax diligence for investments, acquisitions and restructuring."}]},
+      {slug:"cfo", name:"CFO & Business Advisory", items:[
+        {t:"Virtual CFO Services", d:"Part-time CFO depth — financial leadership without full-time cost."},
+        {t:"Business Financial Strategy", d:"Pricing, margins, capital structure and growth strategy."},
+        {t:"Budgeting & Financial Forecasting", d:"Annual budgets, rolling forecasts and variance reviews."},
+        {t:"Cash Flow & Working Capital Management", d:"Cash conversion discipline and working capital optimisation."},
+        {t:"Business Performance Analysis", d:"KPIs, unit economics and performance reviews that drive action."}]},
+      {slug:"agreements", name:"Business Agreements & Restructuring", items:[
+        {t:"Partnership Deed Drafting", d:"Comprehensive deeds covering capital, profit-sharing and exit."},
+        {t:"LLP Agreement Drafting", d:"LLP agreements that protect partners and anticipate disputes."},
+        {t:"Business Reorganisation Advisory", d:"Mergers, demergers and reorganisation structuring."},
+        {t:"Business Valuation Advisory or Coordination", d:"Valuation support coordinated with registered valuers."}]}
+    ],
+    prepare:["Business constitution documents and prior filings","Bank statements, sales and purchase records","Details of existing registrations (GST, PAN, TAN)","Shareholding/director details for corporate work"],
+    process:[["Scope the engagement","We define deliverables, timelines and a transparent fee estimate."],["Set up systems","Accounting, compliance calendars and documentation are organised."],["Execute & deliver","Filings, books, audits and reports are delivered on schedule."],["Advise & grow","Regular reviews move you from compliance to strategic advantage."]],
+    faqs:[["Can you handle everything from incorporation to audit?","Yes — that's precisely the point of this practice area: one firm across your business lifecycle."],["Do you offer monthly retainers?","Yes, monthly accounting/compliance retainers and virtual CFO engagements are available."],["What size of business do you typically serve?","From solo founders to established companies — engagements are scaled to your stage and complexity."]]
+  }
+};
+
+/* ============================== TEMPLATES ============================== */
+function pageHero(crumb, title, tag){
+  return `<div class="page-hero"><div class="container">
+    <div class="crumbs"><a href="#home">Home</a> &nbsp;/&nbsp; ${crumb}</div>
+    <h1>${title}</h1><p>${tag}</p></div></div>`;
+}
+
+function sidebar(d, key){
+  return `<aside class="side-col">
+    <div class="side-card">
+      <h3>Book a ${d.consult} Consultation</h3>
+      <p>Describe your situation and get a clear action plan with indicative timelines and fees.</p>
+      <a class="btn btn-gold" href="#consult?type=${d.consultId}">Book Consultation</a>
     </div>
+    <div class="side-card light">
+      <h3>📋 Keep these handy</h3>
+      <ul class="checklist">${d.prepare.map(x=>`<li>${x}</li>`).join("")}</ul>
+    </div>
+    <div class="side-card light">
+      <h3>🔗 Related services</h3>
+      <div class="chips">
+        <a class="chip" href="#notices">Notices</a>
+        <a class="chip" href="#compliance">Tax Compliance</a>
+        <a class="chip" href="#planning">Tax Planning</a>
+        <a class="chip" href="#nri">NRI Services</a>
+        <a class="chip" href="#business">Business Services</a>
+      </div>
+    </div>
+  </aside>`;
+}
 
-    <script>
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
+function renderSection(key){
+  const d = SECTIONS[key];
+  const groupsHtml = d.groups ? d.groups.map(g=>`
+    <div class="group-card" id="${key}-${g.slug}">
+      <header><h3>${g.name}</h3></header>
+      <div class="items">${g.items.map(it=>`<div class="item"><h4>${it.t}</h4><p>${it.d}</p></div>`).join("")}</div>
+    </div>`).join("")
+  : `<div class="item-grid">${d.flat.map(it=>`<div class="mini"><h4>${it.t}</h4><p>${it.d}</p></div>`).join("")}</div>`;
 
-        // Modal Functions
-        function openModal() {
-            document.getElementById('modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+  return `${pageHero(d.title, d.title, d.tag)}
+  <div class="container"><div class="page-grid">
+    <div class="main-col">
+      <h2>Who this service is for</h2>
+      <ul class="checklist">${d.who.map(x=>`<li>${x}</li>`).join("")}</ul>
+      ${d.note?`<div class="note-box">ℹ️ ${d.note}</div>`:""}
+      <h2>What we handle</h2>
+      ${groupsHtml}
+      <h2>How the engagement works</h2>
+      <ol class="steps">${d.process.map(p=>`<li><strong>${p[0]}</strong><span>${p[1]}</span></li>`).join("")}</ol>
+      <h2>Frequently asked questions</h2>
+      <div class="faq">${d.faqs.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join("")}</div>
+    </div>
+    ${sidebar(d,key)}
+  </div></div>
+  <div class="container"><div class="cta-band">
+    <h2>Not sure where your matter fits?</h2>
+    <p>Book a consultation — we'll listen, classify the issue correctly and point you to the right engagement.</p>
+    <a class="btn btn-gold" href="#consult">Book Consultation</a>
+  </div></div>`;
+}
 
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+const ARTICLES = [
+  {tag:"Notices", icon:"📨", t:"Received an Income Tax Notice? A Calm First-Response Checklist", p:"What to verify, what to gather and what never to do in the first 48 hours of receiving a notice."},
+  {tag:"GST", icon:"🧾", t:"GSTR-2B Mismatch: Why Your ITC Gets Blocked and How to Fix It", p:"A plain-English guide to 2B mismatches, vendor follow-ups and documenting your replies."},
+  {tag:"NRI", icon:"✈️", t:"NRI Selling Property in India: TDS, Capital Gains and Repatriation", p:"The three decisions every NRI property seller must get right — before signing anything."},
+  {tag:"Planning", icon:"🎯", t:"Advance Tax for Salaried Professionals: Avoiding the 234B/234C Trap", p:"Why salary income can still attract advance tax — and a simple quarterly system to stay safe."}
+];
 
-        // Close modal on outside click
-        document.getElementById('modal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
+function renderHome(){
+  return `
+  <section class="hero"><div class="container">
+    <span class="kicker">Chartered Accountant · Tax · GST · FEMA · Advisory</span>
+    <h1 style="margin-top:14px">Clarity in tax. <span class="gold">Confidence</span> in every financial decision.</h1>
+    <p class="sub">FinTax Insights by CA Vivek helps individuals, families, NRIs, startups and established businesses with tax notices, compliance, planning and corporate services — with clear advice and dependable execution.</p>
+    <a class="btn btn-gold" href="#consult">Book Consultation</a>
+    &nbsp;&nbsp;<a class="btn btn-outline" href="#notices" style="border-color:rgba(255,255,255,.6);color:#fff">Explore Services</a>
+    <div class="hero-badges">
+      <span>✔ Notices & disputes</span><span>✔ ITR, TDS & GST filing</span><span>✔ NRI & FEMA advisory</span><span>✔ Business setup to CFO</span>
+    </div>
+  </div></section>
 
-        // Handle Contact Form Submit (WhatsApp)
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const mobile = document.getElementById('mobile').value;
-            const place = document.getElementById('place').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
+  <div class="trust"><div class="container"><div class="trust-grid">
+    <div class="trust-card"><div class="num">15<em>+</em></div><p>Years of professional experience</p></div>
+    <div class="trust-card"><div class="num">1,200<em>+</em></div><p>Clients served across categories</p></div>
+    <div class="trust-card"><div class="num">800<em>+</em></div><p>Notices & disputes resolved</p></div>
+    <div class="trust-card"><div class="num">4.9<em>★</em></div><p>Client satisfaction rating</p></div>
+  </div><p class="small muted center" style="padding-bottom:14px">* Sample figures shown for layout — replace with verified numbers and ratings compliant with professional rules.</p></div></div>
 
-            let whatsappMessage = `Hello CA Arjun Mehta,%0A%0AI am interested in your services. Here are my details:%0A%0A`;
-            whatsappMessage += `*Name:* ${name}%0A`;
-            whatsappMessage += `*Mobile:* ${mobile}%0A`;
-            whatsappMessage += `*Place:* ${place}%0A`;
-            if (service) whatsappMessage += `*Service Interested:* ${service}%0A`;
-            if (message) whatsappMessage += `*Message:* ${message}%0A`;
-            whatsappMessage += `%0APlease contact me at your earliest convenience. Thank you!`;
+  <section class="section"><div class="container">
+    <div class="center" style="max-width:680px;margin:0 auto 40px">
+      <span class="kicker">Service Pathways</span>
+      <h2 style="font-size:2rem;margin:10px 0">One firm for your entire tax journey</h2>
+      <p class="muted">Choose the pathway that matches your situation — every path leads to the right consultation.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card pathway"><div class="icon">📨</div><h3>Income Tax & GST Notices</h3><p class="muted">Notices, scrutiny, demands, disputes, assessments and appeals — responded to with precision and filed on time.</p><a class="learn" href="#notices">View services</a></div>
+      <div class="card pathway"><div class="icon">🗂️</div><h3>Tax Compliance</h3><p class="muted">ITR filing, advance tax, TDS/TCS, GST returns and registrations — routine obligations handled reliably, year-round.</p><a class="learn" href="#compliance">View services</a></div>
+      <div class="card pathway"><div class="icon">🎯</div><h3>Tax & Financial Planning</h3><p class="muted">Personal, couple and family planning — cash flow, investments, insurance, education and retirement, tax-efficiently.</p><a class="learn" href="#planning">View services</a></div>
+      <div class="card pathway"><div class="icon">✈️</div><h3>NRI Services</h3><p class="muted">NRI taxation, FEMA, DTAA, property transactions, repatriation and foreign asset disclosures — across borders.</p><a class="learn" href="#nri">View services</a></div>
+      <div class="card pathway"><div class="icon">🏢</div><h3>Business & Corporate Services</h3><p class="muted">Incorporation, bookkeeping, audit, ROC compliance, GST advisory and virtual CFO — from setup to scale.</p><a class="learn" href="#business">View services</a></div>
+      <div class="card pathway" style="background:var(--navy);border-color:var(--navy)"><div class="icon">📅</div><h3 style="color:#fff">Not sure where to start?</h3><p style="color:#cfdcee">Book a consultation and we'll classify your matter and guide you to the right service.</p><a class="learn" href="#consult">Book now</a></div>
+    </div>
+  </div></section>
 
-            const whatsappURL = `https://wa.me/919876543210?text=${whatsappMessage}`;
-            window.open(whatsappURL, '_blank');
-        }
+  <section class="section" style="background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="kicker">About CA Vivek</span>
+        <h2 style="font-size:1.9rem;margin:10px 0 16px">Advice you can act on, from a CA who has seen it all</h2>
+        <p class="muted">CA Vivek Reddy is a Chartered Accountant with [15]+ years of experience across direct tax, GST, FEMA and business advisory — representing individuals, NRIs, startups and established companies.</p>
+        <p class="muted" style="margin-top:10px">The firm combines rigorous technical work with plain-language advice: you will always know what is happening, why it matters and what it costs.</p>
+        <div style="margin-top:22px"><a class="btn btn-navy" href="#about">More About Us</a></div>
+      </div>
+      <div class="avatar">CA</div>
+    </div>
+  </div></section>
 
-        // Handle Modal Submit (WhatsApp)
-        function handleModalSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('modalName').value;
-            const mobile = document.getElementById('modalMobile').value;
-            const place = document.getElementById('modalPlace').value;
+  <section class="section" id="insights"><div class="container">
+    <div class="center" style="max-width:640px;margin:0 auto 38px">
+      <span class="kicker">Latest Tax Insights</span>
+      <h2 style="font-size:2rem;margin:10px 0">Educational articles from the desk of CA Vivek</h2>
+      <p class="muted">Sample articles demonstrating expertise — replace with your published content.</p>
+    </div>
+    <div class="grid grid-2" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+      ${ARTICLES.map(a=>`<article class="article"><div class="cover">${a.icon}</div><div class="body"><span class="tag">${a.tag}</span><h4>${a.t}</h4><p>${a.p}</p></div></article>`).join("")}
+    </div>
+  </div></section>
 
-            let whatsappMessage = `Hello CA Arjun Mehta,%0A%0AI would like to book a consultation call. Here are my details:%0A%0A`;
-            whatsappMessage += `*Name:* ${name}%0A`;
-            whatsappMessage += `*Mobile:* ${mobile}%0A`;
-            whatsappMessage += `*Place:* ${place}%0A`;
-            whatsappMessage += `%0APlease let me know a suitable time for the call. Thank you!`;
+  <section class="section" style="padding-top:0"><div class="container">
+    <div class="cta-band">
+      <h2>Describe your issue. We'll chart the path.</h2>
+      <p>Select the consultation type that best matches your situation, share a few details, and we'll take it from there.</p>
+      <a class="btn btn-gold" href="#consult">Book Consultation</a>
+    </div>
+  </div></section>`;
+}
 
-            const whatsappURL = `https://wa.me/919876543210?text=${whatsappMessage}`;
-            window.open(whatsappURL, '_blank');
-            closeModal();
-        }
+function renderAbout(){
+  return `${pageHero("About Us","About FinTax Insights by CA Vivek","A boutique tax and advisory firm built on one principle: clients deserve advice they can actually understand and act on.")}
+  <div class="container"><div class="page-grid">
+    <div class="main-col">
+      <h2>The firm</h2>
+      <p>FinTax Insights is a full-service tax and business advisory practice founded and led by <strong>CA Vivek Reddy</strong>. The firm serves individuals, families, NRIs, startups and established businesses across India and abroad.</p>
+      <p>Every engagement — from a single ITR filing to a complex departmental dispute — receives the same discipline: understand completely, document rigorously, and communicate plainly.</p>
+      <h2>Professional expertise & experience</h2>
+      <ul class="checklist">
+        <li>Direct tax — assessments, scrutiny, appeals and planning</li>
+        <li>GST & indirect tax — compliance, advisory and litigation support</li>
+        <li>FEMA & NRI taxation — cross-border transactions and repatriation</li>
+        <li>Business advisory — setup, accounting, audit, ROC and virtual CFO</li>
+        <li>[Add degrees, certifications and memberships — e.g., DISA, FAFD, IFRS]</li>
+      </ul>
+      <h2>Our approach</h2>
+      <ol class="steps">
+        <li><strong>Listen & diagnose</strong><span>We start with your facts, documents and goals — never with a template.</span></li>
+        <li><strong>Plan transparently</strong><span>You receive a clear scope, indicative timelines and fees before work begins.</span></li>
+        <li><strong>Execute rigorously</strong><span>Deadlines are tracked, filings reconciled and acknowledgments documented.</span></li>
+        <li><strong>Review proactively</strong><span>We flag risks and opportunities early — before they become problems.</span></li>
+      </ol>
+      <h2>Team & firm profile</h2>
+      <div class="item-grid">
+        <div class="mini"><h4>CA Vivek Reddy — Founder</h4><p>[Short bio: qualifications, years of experience, areas of specialisation.]</p></div>
+        <div class="mini"><h4>[Team Member 2]</h4><p>[Role — e.g., Manager, Direct Tax. Add qualification and focus areas.]</p></div>
+        <div class="mini"><h4>[Team Member 3]</h4><p>[Role — e.g., GST & Compliance Executive. Add qualification and focus areas.]</p></div>
+      </div>
+    </div>
+    <aside class="side-col">
+      <div class="side-card">
+        <h3>📅 Book a consultation</h3>
+        <p>In-person or virtual — the first step to getting your matter sorted.</p>
+        <a class="btn btn-gold" href="#consult">Book Consultation</a>
+      </div>
+      <div class="side-card light">
+        <h3>📋 Contact information</h3>
+        <ul class="fact-list">
+          <li><strong>Phone</strong><span>+91-XXXXXXXXXX</span></li>
+          <li><strong>Email</strong><span>hello@fintaxinsights.in</span></li>
+          <li><strong>Hours</strong><span>Mon–Sat, 10 AM – 7 PM IST</span></li>
+          <li><strong>Virtual</strong><span>Video consults across time zones</span></li>
+        </ul>
+      </div>
+      <div class="side-card light" id="locations">
+        <h3>📍 Office locations</h3>
+        <ul class="checklist">
+          <li>[Office 1 — Street, Area, City, PIN]</li>
+          <li>[Office 2 — Street, Area, City, PIN]</li>
+        </ul>
+      </div>
+    </aside>
+  </div></div>`;
+}
 
-        // Scroll Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+function renderConsult(preselect){
+  return `${pageHero("Book Consultation","Book a Consultation","Select the consultation type that best matches your situation, share a few details, and we'll confirm your appointment.")}
+  <div class="container section" style="padding-top:44px">
+    <span class="kicker">Step 1 · Choose a consultation type</span>
+    <div class="consult-types" id="typeCards">
+      ${CONSULT_TYPES.map(c=>`<div class="type-card ${preselect===c.id?"selected":""}" data-type="${c.id}" onclick="selectType('${c.id}')">
+        <div style="font-size:1.6rem">${c.icon}</div><h4>${c.name}</h4><p>${c.desc}</p>
+      </div>`).join("")}
+    </div>
+    <span class="kicker">Step 2 · Tell us about yourself</span>
+    <form class="consult-form" id="consultForm" style="margin-top:20px" novalidate>
+      <div class="form-grid">
+        <div><label>Full name *</label><input id="f-name" placeholder="Your name" required></div>
+        <div><label>Phone / WhatsApp *</label><input id="f-phone" placeholder="+91-XXXXXXXXXX" required></div>
+        <div><label>Email</label><input id="f-email" type="email" placeholder="you@example.com"></div>
+        <div><label>Preferred date</label><input id="f-date" type="date"></div>
+        <div class="full"><label>Consultation type *</label>
+          <select id="f-type">${CONSULT_TYPES.map(c=>`<option value="${c.id}" ${preselect===c.id?"selected":""}>${c.name}</option>`).join("")}</select>
+        </div>
+        <div class="full"><label>Briefly describe your situation *</label><textarea id="f-msg" rows="4" placeholder="e.g., Received an income tax notice under Section 143(2) for AY 2024-25…" required></textarea></div>
+      </div>
+      <div style="margin-top:20px"><button type="submit" class="btn btn-gold">Request Appointment</button></div>
+      <div class="form-success" id="formSuccess">
+        <h3>✓ Request received (demo)</h3>
+        <p id="successText" style="color:#0a7a3d"></p>
+        <p class="small" style="margin-top:8px;color:#0a7a3d">This is a front-end demonstration — connect the form to your email, WhatsApp or CRM to receive submissions.</p>
+      </div>
+    </form>
+  </div>`;
+}
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+/* ============================== ROUTER ============================== */
+const PAGES = {home:renderHome, about:renderAbout, consult:renderConsult,
+  notices:()=>renderSection("notices"), compliance:()=>renderSection("compliance"),
+  planning:()=>renderSection("planning"), nri:()=>renderSection("nri"), business:()=>renderSection("business")};
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+function parseHash(){
+  const raw = (location.hash||"#home").slice(1);
+  const [pq, query] = raw.split("?");
+  const [page, anchor] = pq.split("/");
+  return {page: PAGES[page] ? page : "home", anchor: anchor||"", query: query||""};
+}
 
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-            } else {
-                navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-            }
-        });
+function route(){
+  const {page, anchor, query} = parseHash();
+  const params = new URLSearchParams(query);
+  document.getElementById("app").innerHTML =
+    page==="consult" ? renderConsult(params.get("type")) : PAGES[page]();
+  document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active", n.dataset.id===page));
+  document.getElementById("mobilePanel").classList.remove("open");
+  if(anchor){
+    const el = document.getElementById(`${page}-${anchor}`);
+    if(el){ setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"start"}),60); return; }
+  }
+  window.scrollTo({top:0});
+}
 
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        document.getElementById('navLinks').classList.remove('active');
-                    }
-                }
-            });
-        });
-    </script>
+function selectType(id){
+  document.querySelectorAll("#typeCards .type-card").forEach(c=>c.classList.toggle("selected", c.dataset.type===id));
+  const sel = document.getElementById("f-type"); if(sel) sel.value = id;
+}
+
+document.addEventListener("submit", e=>{
+  if(e.target.id!=="consultForm") return;
+  e.preventDefault();
+  const name=document.getElementById("f-name").value.trim();
+  const phone=document.getElementById("f-phone").value.trim();
+  const msg=document.getElementById("f-msg").value.trim();
+  if(!name||!phone||!msg){ alert("Please fill in your name, phone and a short description."); return; }
+  const t=CONSULT_TYPES.find(c=>c.id===document.getElementById("f-type").value);
+  document.getElementById("successText").textContent =
+    `Thank you, ${name}. Your ${t.name} request has been noted. We will contact you on ${phone} to confirm the slot.`;
+  document.getElementById("formSuccess").style.display="block";
+  e.target.querySelector("button[type=submit]").textContent="Request Sent ✓";
+});
+
+/* ============================== NAV BUILD ============================== */
+document.getElementById("mainNav").innerHTML = NAV.map(n=>`
+  <div class="nav-item" data-id="${n.id}">
+    <a class="nav-link" href="#${n.id}">${n.label}${n.children?' <span class="caret">▾</span>':""}</a>
+    ${n.children?`<div class="dropdown">${n.children.map(c=>`<a href="#${c[1]}">${c[0]}</a>`).join("")}</div>`:""}
+  </div>`).join("");
+
+document.getElementById("mobilePanel").innerHTML = NAV.map(n=>
+  n.children
+  ? `<details><summary>${n.label} ▾</summary>${n.children.map(c=>`<a href="#${c[1]}">${c[0]}</a>`).join("")}</details>`
+  : `<a href="#${n.id}">${n.label}</a>`
+).join("");
+
+document.getElementById("burger").addEventListener("click",()=>{
+  document.getElementById("mobilePanel").classList.toggle("open");
+});
+
+window.addEventListener("hashchange", route);
+route();
+</script>
 </body>
 </html>
